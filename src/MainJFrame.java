@@ -147,12 +147,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        String[][] Coord_Str;
        StringBuilder sb = new StringBuilder();
-       // String str [] = new String[] ;
         ArrayList<String> Coord_List = new ArrayList<String>();
         ArrayList<String> Coord_List_s = new ArrayList<String>();
-        //ArrayList<Double> Coord_X = new ArrayList<Double>();
-       //ArrayList<Double> Coord_Y = new ArrayList<Double>();
-        //RegPointTNO reg = new RegPointTNO();
         JFileChooser fileopen = new JFileChooser();
         int ret = fileopen.showDialog(null, "Открыть файл");
         if (ret == JFileChooser.APPROVE_OPTION) {
@@ -161,90 +157,37 @@ public class MainJFrame extends javax.swing.JFrame {
             {
                 char[] buffer = new char[(int)file.length()];// считаем файл полностью
                 reader.read(buffer);
-
-              //  String TextTNO = new String(buffer);         // делаем текст строкой   // раскоментить
-                
-                sb.insert(sb.length(), buffer); // tes
-                //textArea1.setText(sb.toString());
-                
-                
-             //   int index = TextTNO.indexOf("Waveform Values");     // получаем индекс нужной строки // раскоментить
+                sb.insert(sb.length(), buffer); // tes                   
                 int s_index = sb.indexOf("Waveform Values");     // получаем индекс нужной строки tes
 
                 for(int i = 0;i<5;i++){
-                   // index = TextTNO.indexOf("\r\n", index+1);  //  поиск начала нужных данных(пропуск пяти строк) // раскоментить
                     s_index = sb.indexOf("\r\n", s_index+1);  //  поиск начала нужных данных(пропуск пяти строк) tes
                 }
-
-                //String pointsTNO = TextTNO.substring(index, TextTNO.length());// K   // раскоментить
                
                 StringBuilder sbp = new StringBuilder();  
-                sbp.append(sb.substring(s_index, sb.length())); // test  
+                sbp.append(sb.substring(s_index, sb.length())); 
 
-                
-//                for (String retval : pointsTNO.split("\r\n")) {                       // раскоментить
-//                                                         // заполнение листа строками координат
-//                    Coord_List_s.add(retval.trim());
-//                }
-  
-                for (String retval : sbp.toString().split("\r\n")) {                                   // test
+                for (String retval : sbp.toString().split("\r\n")) {                                
                                                          // заполнение листа строками координат
                     Coord_List_s.add(retval.trim());
                 }
-                
-                
-                
-            
-                //теперь можно заполнять массив х и у координатами отдельно
-           //     String[] arr = Coord_List_s.toArray(new String[Coord_List_s.size()]);  // раскоментить
-                //           Coord_List.clear();
-                
-
-
-                /*for(String s: arr)
-                for (String retval : s.split("   "))   // заполнение листа  координатами
-                    Coord_List.add(retval);*/
-//                for(String s: arr) {   // раскоментить
-//                    //textArea1.setText(textArea1.getText()+ s + '\n');
-//                    for (String retval : s.split("\\s+"))   // заполнение листа  координатами
-//                        Coord_List_s.add(retval);
-//                }
-                
-                for(String s: Coord_List_s) {           // tes
-                    //textArea1.setText(textArea1.getText()+ s + '\n');
+    
+                //теперь можно заполнять list х и у координатами отдельно
+       
+                for(String s: Coord_List_s) {          
                     for (String retval : s.split("\\s+"))   // заполнение листа  координатами
                         Coord_List.add(retval);
                 }
-                
-                
-                
-                
-                
-
-//                for(int i = 1; i< Coord_List_s.size()-1; i = i+2){          // раскоментить
-// 
-//                    Coord_X.add(Double.valueOf(Coord_List_s.get(i)));
-//                    textArea1.setText(textArea1.getText() + Coord_List_s.get(i) + "\t");
-//                   // System.out.println(Coord_X.get(i));
-//                    Coord_Y.add(Double.valueOf(Coord_List_s.get(i+1)));
-//                    textArea1.setText(textArea1.getText() + Coord_List_s.get(i+1)+ "\n");
-//                }
-//                
-                
-                
-                
+      
                 StringBuilder sb_out = new StringBuilder();
-                for(int i = 1; i< Coord_List.size()-1; i = i+2){             // tes
-
+                for(int i = 1; i< Coord_List.size()-1; i = i+2){          
                     sb_out.append(Coord_List.get(i));
                     sb_out.append("\t");
                     Coord_X.add(Double.valueOf(Coord_List.get(i)));
-                   //textArea1.setText(textArea1.getText() + Coord_List.get(i) + "\t");
-                   // System.out.println(Coord_X.get(i));
                     Coord_Y.add(Double.valueOf(Coord_List.get(i+1)));
                      sb_out.append(Coord_List.get(i+1));
                      sb_out.append("\n");
-                    //textArea1.setText(textArea1.getText() + Coord_List.get(i+1)+ "\n");
+                    
                 }        
                 textArea1.setText(sb_out.toString());
             }
