@@ -10,6 +10,7 @@ public class Compute {
     //ArrayList<Double> Amp = new ArrayList<Double>();
 
     public double mean(ArrayList<Double> Amp) {      //среднее
+        String s_volue = "-1";
         double volue = 0;
         int c = 0;
         for (Double s : Amp) {
@@ -18,7 +19,7 @@ public class Compute {
         }
         if (c == 0)
             return -1;
-        else volue = volue / c;
+        else volue = volue / c;  
         return volue;
 
     }

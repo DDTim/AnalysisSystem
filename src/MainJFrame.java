@@ -126,20 +126,20 @@ public class MainJFrame extends javax.swing.JFrame {
     {
         Compute com = new Compute();
 
-        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"+com.mean(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. ошибка: \t"+com.SO(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"+com.med(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t"+com.moda(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t"+com.StOt(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+com.disp(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"+com.exc(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t"+com.asim(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"+ com.interval(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"+com.min(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"+com.max(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t"+com.sum(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t"+com.count(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"+com.CI(Coord_Y))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       String.format("%2.3e",com.mean(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. ошибка: \t" +       String.format("%2.3e",com.SO(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       String.format("%2.3e",com.med(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       com.moda(Coord_Y))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       String.format("%2.3e",com.StOt(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       String.format("%2.3e",com.disp(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       String.format("%2.3e",com.exc(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%2.3e",com.asim(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       String.format("%2.3e",com.interval(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       String.format("%2.3e",com.min(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       String.format("%2.3e", com.max(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       String.format("%2.3e",com.sum(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.format("%2.3e",com.count(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",com.CI(Coord_Y)))+ '\n');
 
 
     }
