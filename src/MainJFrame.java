@@ -133,9 +133,9 @@ public class MainJFrame extends javax.swing.JFrame {
     void calcAll(ArrayList<Double> Coord_Y)
     {
        // Compute com = new Compute();
-
+        textArea2.setText("");    
         textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(Compute.mean(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t\t" +            FormatOut.outformat(Compute.SO(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t\t"      +       FormatOut.outformat(Compute.SO(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       FormatOut.outformat(Compute.med(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       FormatOut.outformat(Compute.moda(Coord_Y))+ '\n'));
         textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       FormatOut.outformat(Compute.StOt(Coord_Y)))+ '\n');

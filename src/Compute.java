@@ -47,7 +47,7 @@ public class Compute {
         return vol;
     }
 
-    //public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода
+    //public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода // Что то с ней не таг
     public static double moda(ArrayList<Double> Amp) { 
         ArrayList<Double> lst = new ArrayList<Double>();    // список мод
         double mod = 0;
@@ -57,16 +57,17 @@ public class Compute {
         int ncount = 0;
         for (Double v : Amp) {
             for (Double s : Amp) {
-                if (v == s) ncount++;
+                if (v.equals(s)) ncount++;
             }
             if (ncount > count) {
                 lst.clear();
                 lst.add(v);
                 count = ncount;
+                mod = v;
             }
             if (ncount == count) {
                 for (Double q : lst)
-                    if (q != v)
+                    if (!q.equals(v))
                         mod = v;
                         //lst.add(v); 
             }

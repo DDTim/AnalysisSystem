@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -11,9 +6,11 @@
 public class FormatOut {
     
     public static String outformat(double vol){
-        String volue = String.format("%.3e", vol);        
-        String STS = volue.substring(0,5); // STS - start to string
-        String ETS = volue.substring(6,9); // ETS - end to string
+        
+        String volue = String.format("%.3e", vol);  
+        String[] arrs = volue.split("e");
+        String STS = arrs[0];               // STS - start to string  
+        String ETS = arrs[1];               // ETS - end to string    
         String repSTS = STS.replace(",", ".");
         double dSTS = Double.valueOf(repSTS);
         
