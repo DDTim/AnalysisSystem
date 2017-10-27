@@ -134,8 +134,8 @@ public class MainJFrame extends javax.swing.JFrame {
     {
        // Compute com = new Compute();
 
-        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       String.format("%2.3e",Compute.mean(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. ошибка: \t" +       String.format("%2.3e",Compute.SO(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(String.format("%2.3e",Compute.mean(Coord_Y))))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t" +              String.format("%2.3e",Compute.SO(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       String.format("%2.3e",Compute.med(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       Compute.moda(Coord_Y))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       String.format("%2.3e",Compute.StOt(Coord_Y)))+ '\n');
@@ -147,9 +147,7 @@ public class MainJFrame extends javax.swing.JFrame {
         textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       String.format("%2.3e", Compute.max(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       String.format("%2.3e",Compute.sum(Coord_Y)))+ '\n');
         textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.format("%2.3e",Compute.count(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",Compute.CI(Coord_Y)))+ '\n');
-
-
+        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",Compute.CI(Coord_Y)))+ '\n');   
     }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
