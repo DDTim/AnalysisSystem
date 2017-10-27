@@ -47,9 +47,10 @@ public class Compute {
         return vol;
     }
 
-    public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода
+    //public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода
+    public static double moda(ArrayList<Double> Amp) { 
         ArrayList<Double> lst = new ArrayList<Double>();    // список мод
-
+        double mod = 0;
         // нахождение числа повторений:
         double i = 0;
         int count = 0;
@@ -66,10 +67,11 @@ public class Compute {
             if (ncount == count) {
                 for (Double q : lst)
                     if (q != v)
-                        lst.add(v);
+                        mod = v;
+                        //lst.add(v); 
             }
         }
-        return lst;
+        return mod;
 
 
     }
@@ -121,7 +123,7 @@ public class Compute {
         for (Double i : Amp) summa += i;
         return summa;
     }
-    public static double count(ArrayList<Double> Amp) { // Счет
+    public static int count(ArrayList<Double> Amp) { // Счет
         return Amp.size();
     }
     public static double CI(ArrayList<Double> Amp) { // Уровень надёжности 	C.I. (confidence interval yegorij); credible interval (Supergrooo)

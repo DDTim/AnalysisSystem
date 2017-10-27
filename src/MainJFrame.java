@@ -134,20 +134,20 @@ public class MainJFrame extends javax.swing.JFrame {
     {
        // Compute com = new Compute();
 
-        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(String.format("%2.3e",Compute.mean(Coord_Y))))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t" +              String.format("%2.3e",Compute.SO(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       String.format("%2.3e",Compute.med(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       Compute.moda(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       String.format("%2.3e",Compute.StOt(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       String.format("%2.3e",Compute.disp(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       String.format("%2.3e",Compute.exc(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%2.3e",Compute.asim(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       String.format("%2.3e",Compute.interval(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       String.format("%2.3e",Compute.min(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       String.format("%2.3e", Compute.max(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       String.format("%2.3e",Compute.sum(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.format("%2.3e",Compute.count(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",Compute.CI(Coord_Y)))+ '\n');   
+        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(Compute.mean(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t\t" +            FormatOut.outformat(Compute.SO(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       FormatOut.outformat(Compute.med(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       FormatOut.outformat(Compute.moda(Coord_Y))+ '\n'));
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       FormatOut.outformat(Compute.StOt(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       FormatOut.outformat(Compute.disp(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       FormatOut.outformat(Compute.exc(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%.3f",Compute.asim(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       FormatOut.outformat(Compute.interval(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       FormatOut.outformat(Compute.min(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       FormatOut.outformat(Compute.max(Coord_Y))+ '\n'));
+        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       FormatOut.outformat(Compute.sum(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.valueOf(Compute.count(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       FormatOut.outformat(Compute.CI(Coord_Y)))+ '\n');   
     }
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
