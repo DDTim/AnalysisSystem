@@ -1,6 +1,5 @@
 import java.io.*;
 import javax.swing.JFileChooser;
-import java.util.regex.*;
 import java.lang.*;
 import java.util.ArrayList;
 /*
@@ -23,6 +22,8 @@ public class MainJFrame extends javax.swing.JFrame {
         textArea1 = new java.awt.TextArea();
         textArea2 = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -43,6 +44,13 @@ public class MainJFrame extends javax.swing.JFrame {
         label1.setText("Амплитуды, В");
 
         jLabel1.setText("Файл не выбран");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "пс", "нс", "мкс", "мс", "с" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -69,53 +77,53 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(196, 196, 196)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textArea2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(7, 7, 7)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(15, 15, 15))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
+
+        jLabel1.getAccessibleContext().setAccessibleName("jLabel1");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,22 +132,22 @@ public class MainJFrame extends javax.swing.JFrame {
     ArrayList<Double> Coord_Y = new ArrayList<Double>();
     void calcAll(ArrayList<Double> Coord_Y)
     {
-        Compute com = new Compute();
+       // Compute com = new Compute();
 
-        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       String.format("%2.3e",com.mean(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. ошибка: \t" +       String.format("%2.3e",com.SO(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       String.format("%2.3e",com.med(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       com.moda(Coord_Y))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       String.format("%2.3e",com.StOt(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       String.format("%2.3e",com.disp(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       String.format("%2.3e",com.exc(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%2.3e",com.asim(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       String.format("%2.3e",com.interval(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       String.format("%2.3e",com.min(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       String.format("%2.3e", com.max(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       String.format("%2.3e",com.sum(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.format("%2.3e",com.count(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",com.CI(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       String.format("%2.3e",Compute.mean(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. ошибка: \t" +       String.format("%2.3e",Compute.SO(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       String.format("%2.3e",Compute.med(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"     +       Compute.moda(Coord_Y))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       String.format("%2.3e",Compute.StOt(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       String.format("%2.3e",Compute.disp(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       String.format("%2.3e",Compute.exc(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%2.3e",Compute.asim(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       String.format("%2.3e",Compute.interval(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       String.format("%2.3e",Compute.min(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       String.format("%2.3e", Compute.max(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       String.format("%2.3e",Compute.sum(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.format("%2.3e",Compute.count(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       String.format("%2.3e",Compute.CI(Coord_Y)))+ '\n');
 
 
     }
@@ -173,7 +181,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 }
     
                 //теперь можно заполнять list х и у координатами отдельно
-       
                 for(String s: Coord_List_s) {          
                     for (String retval : s.split("\\s+"))   // заполнение листа  координатами
                         Coord_List.add(retval);
@@ -189,20 +196,32 @@ public class MainJFrame extends javax.swing.JFrame {
                      sb_out.append("\n");
                     
                 }        
+                if(Coord_X.isEmpty() || Coord_Y.isEmpty()){
+                    jLabel1.setText("Файл не корректен");
+                }
+                else{
+                jLabel1.setText("Введите длинну фронта:");    
                 textArea1.setText(sb_out.toString());
+                }
             }
 
-            catch(IOException ex){
-                System.out.println(ex.getMessage());
+            catch(Exception e){
+                jLabel1.setText("Файл не корректен");
+                //System.out.println(ex.getMessage());
             }
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       calcAll(Coord_Y);
+        textArea2.setText("");
+        calcAll(Coord_Y);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,11 +261,13 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JSpinner jSpinner1;
     private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.TextArea textArea1;

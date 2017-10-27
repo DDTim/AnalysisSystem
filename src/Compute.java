@@ -9,8 +9,7 @@ import java.util.Collections;
 public class Compute {
     //ArrayList<Double> Amp = new ArrayList<Double>();
 
-    public double mean(ArrayList<Double> Amp) {      //среднее
-        String s_volue = "-1";
+    public static double mean(ArrayList<Double> Amp) {      //среднее
         double volue = 0;
         int c = 0;
         for (Double s : Amp) {
@@ -24,10 +23,9 @@ public class Compute {
 
     }
 
-    public double med(ArrayList<Double> Amp) {       // медиана
+    public static double med(ArrayList<Double> Amp) {       // медиана
         double vol = 0;
         Collections.sort(Amp);
-        //на ноль проверкуу сделати
         if (Amp.size() % 2 == 0) {
             vol = (Amp.get(Amp.size() / 2) + Amp.get(Amp.size() / 2 - 1)) / 2;
             return vol;
@@ -38,7 +36,7 @@ public class Compute {
         }
     }
 
-    public double SO(ArrayList<Double> Amp) {       //Стандартная ошибка (СКО выборочного среднего)
+    public static double SO(ArrayList<Double> Amp) {       //Стандартная ошибка (СКО выборочного среднего)
         double medX = mean(Amp);
         double sumXmdX = 0;
         double SKO;
@@ -49,7 +47,7 @@ public class Compute {
         return vol;
     }
 
-    public ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода
+    public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода
         ArrayList<Double> lst = new ArrayList<Double>();    // список мод
 
         // нахождение числа повторений:
@@ -75,7 +73,7 @@ public class Compute {
 
 
     }
-    public double StOt(ArrayList<Double> Amp) {       //Стандартное отклонение (исправленное выборочное СКО)
+    public static double StOt(ArrayList<Double> Amp) {       //Стандартное отклонение (исправленное выборочное СКО)
         double medX = mean(Amp);
         double disp = disp(Amp);
         double ispSKO;
@@ -84,14 +82,14 @@ public class Compute {
         ispSKO = Math.sqrt((Amp.size()*disp)/(Amp.size()-1));
         return ispSKO;
     }
-    public double disp(ArrayList<Double> Amp) {
+    public static double disp(ArrayList<Double> Amp) {
         double medX = mean(Amp);
         double disp = 0;
         for (Double s : Amp) disp += Math.pow(s - medX, 2);
         disp = disp/ (Amp.size() -1);
         return disp;
     }
-    public double exc(ArrayList<Double> Amp) { // Эксцесс
+    public static double exc(ArrayList<Double> Amp) { // Эксцесс
         double medX = mean(Amp);
         double sko4 = Math.pow(disp(Amp),2);
         double d4 = 0;
@@ -99,7 +97,7 @@ public class Compute {
         double excess = (d4/Amp.size())/sko4 -3;
         return excess;
     }
-    public double asim(ArrayList<Double> Amp) { // Асимметричность
+    public static double asim(ArrayList<Double> Amp) { // Асимметричность
         double medX = mean(Amp);
         double sko3 = Math.pow(disp(Amp),1.5);
         double A;
@@ -108,25 +106,25 @@ public class Compute {
         n = n / Amp.size();
         A = n/ sko3;
         return  A;}
-    public double min(ArrayList<Double> Amp) { // Минимум
+    public static double min(ArrayList<Double> Amp) { // Минимум
         return Collections.min(Amp);
     }
-    public double max(ArrayList<Double> Amp) { // Максимум
+    public static double max(ArrayList<Double> Amp) { // Максимум
         return Collections.max(Amp);
     }
-    public double interval(ArrayList<Double> Amp) { // Интервал
+    public static double interval(ArrayList<Double> Amp) { // Интервал
         return Collections.max(Amp) - Collections.min(Amp);
     }
 
-    public double sum(ArrayList<Double> Amp) { // Сумма
+    public static double sum(ArrayList<Double> Amp) { // Сумма
         double summa = 0;
         for (Double i : Amp) summa += i;
         return summa;
     }
-    public double count(ArrayList<Double> Amp) { // Счет
+    public static double count(ArrayList<Double> Amp) { // Счет
         return Amp.size();
     }
-    public double CI(ArrayList<Double> Amp) { // Уровень надёжности 	C.I. (confidence interval yegorij); credible interval (Supergrooo)
+    public static double CI(ArrayList<Double> Amp) { // Уровень надёжности 	C.I. (confidence interval yegorij); credible interval (Supergrooo)
 
         double medX = mean(Amp);
         double SKO = StOt(Amp);
