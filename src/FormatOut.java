@@ -62,7 +62,7 @@ public class FormatOut {
             case "+00": 
                 return String.format("%.3f",dSTS) + " В";  
                 
-            case "+01": 
+            case "+01":  
                 dSTS = dSTS * 10;
                 return String.format("%.3f",dSTS) + " В"; 
                 
@@ -87,8 +87,5 @@ public class FormatOut {
             default:
                 return volue;    
         }
-    }
-    static double MulByTen(double d){
-       return d * 10;
     }
 }

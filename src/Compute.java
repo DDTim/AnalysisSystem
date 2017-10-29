@@ -2,6 +2,8 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Никита on 20.08.2017.
@@ -47,8 +49,8 @@ public class Compute {
         return vol;
     }
 
-    //public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода // Что то с ней не таг
-    public static double moda(ArrayList<Double> Amp) { 
+    public static ArrayList<Double> moda(ArrayList<Double> Amp) {        //Мода // Что то с ней не таг
+    //public static double moda(ArrayList<Double> Amp) { 
         ArrayList<Double> lst = new ArrayList<Double>();    // список мод
         double mod = 0;
         // нахождение числа повторений:
@@ -63,16 +65,20 @@ public class Compute {
                 lst.clear();
                 lst.add(v);
                 count = ncount;
-                mod = v;
+                //mod = v;
             }
             if (ncount == count) {
                 for (Double q : lst)
                     if (!q.equals(v))
                         mod = v;
-                        //lst.add(v); 
+                        lst.add(v); 
             }
         }
-        return mod;
+        //initial a list delede with duplicate elements
+        Set<Double> set = new HashSet<Double>(lst);
+        lst.clear();
+        lst.addAll(set);
+        return lst;
 
 
     }
