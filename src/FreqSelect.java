@@ -25,7 +25,6 @@ public class FreqSelect {
                 i--;
             }
         }
-    
     }
         double getdel()
         {
