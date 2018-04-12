@@ -2,6 +2,8 @@ import java.io.*;
 import javax.swing.JFileChooser;
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 /*
@@ -32,6 +34,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jSpinner2 = new javax.swing.JSpinner();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -76,6 +79,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("График");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("Open...");
@@ -101,70 +111,76 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
-                                        .addGap(18, 18, 18)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(4, 4, 4))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jCheckBox1)
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                                            .addComponent(jSpinner2)))
+                                    .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                    .addComponent(jSpinner2)))
-                            .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox2, 0, 1, Short.MAX_VALUE))
+                                .addGap(1, 1, 1)
+                                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(11, 11, 11))
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("jLabel1");
@@ -172,33 +188,77 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // чтение данных(если существуют)
+    
+   //if(списки данных существуют?)
+//    {
+//     (открываем списки данных)
+//    }
+//    else
+//    {
+        ArrayList<Double> meanList = new ArrayList<Double>();
+        ArrayList<Double> SOList = new ArrayList<Double>();
+        ArrayList<Double> medList = new ArrayList<Double>();
+        ArrayList<Double> modaList = new ArrayList<Double>();
+        ArrayList<Double> StOtList = new ArrayList<Double>();
+        ArrayList<Double> dispList = new ArrayList<Double>();
+        ArrayList<Double> excList = new ArrayList<Double>();
+        ArrayList<Double> asimList = new ArrayList<Double>();
+        ArrayList<Double> intervalList = new ArrayList<Double>();
+        ArrayList<Double> minList = new ArrayList<Double>();
+        ArrayList<Double> sumList = new ArrayList<Double>();
+        ArrayList<Double> maxList = new ArrayList<Double>();
+        ArrayList<Double> countList = new ArrayList<Double>();
+        ArrayList<Double> CIList = new ArrayList<Double>();
+        
+//    }
     
     
     ArrayList<Double> Coord_X = new ArrayList<Double>();
     ArrayList<Double> Coord_Y = new ArrayList<Double>();
     void calcAll(ArrayList<Double> Coord_Y)
-    {
+    {          
+        
+       /// сдесь заполняем эти листы данными
+        double mean = Compute.mean(Coord_Y);
+        double SO = Compute.SO(Coord_Y);
+        double med = Compute.med(Coord_Y);
+        //double moda = Compute.moda(Coord_Y); -- исправить!
+        double StOt = Compute.StOt(Coord_Y);
+        double disp = Compute.disp(Coord_Y);
+        double exc = Compute.exc(Coord_Y);
+        double asim = Compute.asim(Coord_Y);
+        double interval = Compute.interval(Coord_Y);
+        double min = Compute.min(Coord_Y);
+        double max = Compute.max(Coord_Y);
+        double sum = Compute.sum(Coord_Y);
+        double count = Compute.count(Coord_Y);
+        double CI = Compute.CI(Coord_Y);
+        
        // Compute com = new Compute();
         textArea2.setText("");    
-        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(Compute.mean(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t\t"      +       FormatOut.outformat(Compute.SO(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       FormatOut.outformat(Compute.med(Coord_Y)))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Среднее: \t"    +       FormatOut.outformat(mean))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("СКО: \t\t"      +       FormatOut.outformat(SO))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Медиана: \t"    +       FormatOut.outformat(med))+ '\n');
         
         textArea2.setText(textArea2.getText() + String.valueOf("Мода: \t\t"));
         for (Double d : Compute.moda(Coord_Y))textArea2.setText(textArea2.getText() + FormatOut.outformat(d)+ '\n');
           
-        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       FormatOut.outformat(Compute.StOt(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       FormatOut.outformat(Compute.disp(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       FormatOut.outformat(Compute.exc(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%.3f",Compute.asim(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       FormatOut.outformat(Compute.interval(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       FormatOut.outformat(Compute.min(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       FormatOut.outformat(Compute.max(Coord_Y))+ '\n'));
-        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       FormatOut.outformat(Compute.sum(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.valueOf(Compute.count(Coord_Y)))+ '\n');
-        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       FormatOut.outformat(Compute.CI(Coord_Y)))+ '\n');   
+        textArea2.setText(textArea2.getText() + String.valueOf("Ст. откл. : \t" +       FormatOut.outformat(StOt))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Дисп. выб. : \t"+       FormatOut.outformat(disp))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Эксцесс: \t"    +       FormatOut.outformat(exc))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Асимм.: \t\t"   +       String.format("%.3f",asim))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Интервал: \t"   +       FormatOut.outformat(interval))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Минимум: \t"    +       FormatOut.outformat(min))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Максимум: \t"   +       FormatOut.outformat(max)+ '\n'));
+        textArea2.setText(textArea2.getText() + String.valueOf("Сумма: \t\t"    +       FormatOut.outformat(sum))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Счет: \t\t"     +       String.valueOf(count))+ '\n');
+        textArea2.setText(textArea2.getText() + String.valueOf("Ур.надёж.: \t"  +       FormatOut.outformat(CI))+ '\n');   
     }
 
+    
+    //  Функция получения полезных данных
+    ///
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        String[][] Coord_Str;
        StringBuilder sb = new StringBuilder();
@@ -297,6 +357,7 @@ public class MainJFrame extends javax.swing.JFrame {
             
         }
         textArea2.setText("");
+        
         calcAll(Coord_Y);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -311,6 +372,18 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        AFC_Form myform =  new AFC_Form();
+        //myform.setSize(300,200);
+
+        
+        //myform.getContentPane().removeAll();
+        myform.setVisible(true);          
+        
+// Кнопка 2 график
+       // myform.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -350,6 +423,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

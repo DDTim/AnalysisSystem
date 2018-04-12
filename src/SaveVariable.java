@@ -5,7 +5,7 @@ import java.util.ArrayList;
  *
  * @author Никита
  */
-public class FreqSelect {
+public class SaveVariable {
     
         public  ArrayList<Double> amp;
         public  ArrayList<Double> freq;
