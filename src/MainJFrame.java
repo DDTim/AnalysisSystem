@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.io.*;
 import javax.swing.JFileChooser;
 import java.lang.*;
@@ -5,6 +7,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+import org.jfree.ui.ApplicationFrame;
+import org.jfree.ui.RefineryUtilities;
+
 
 /*
  * @author Nikita
@@ -216,6 +226,7 @@ public class MainJFrame extends javax.swing.JFrame {
     
     ArrayList<Double> Coord_X = new ArrayList<Double>();
     ArrayList<Double> Coord_Y = new ArrayList<Double>();
+    ArrayList<String> Coord_List = new ArrayList<String>();
     void calcAll(ArrayList<Double> Coord_Y)
     {          
         
@@ -262,7 +273,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        String[][] Coord_Str;
        StringBuilder sb = new StringBuilder();
-        ArrayList<String> Coord_List = new ArrayList<String>();
         ArrayList<String> Coord_List_s = new ArrayList<String>();
         JFileChooser fileopen = new JFileChooser();
         int ret = fileopen.showDialog(null, "Открыть файл");
@@ -372,17 +382,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
-
+    // Кнопка 2 график
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        AFC_Form myform =  new AFC_Form();
-        //myform.setSize(300,200);
-
-        
-        //myform.getContentPane().removeAll();
-        myform.setVisible(true);          
-        
-// Кнопка 2 график
-       // myform.dispose();
+        AFC_Form formAFC =  new AFC_Form();
+        formAFC.paintAFC(); // передаём координаты для построения графика
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
